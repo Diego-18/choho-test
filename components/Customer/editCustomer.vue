@@ -43,7 +43,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>NIT del Proveedor</span>
+                    <span>NIT del Cliente</span>
                   </v-tooltip>
                 </template>
               </v-text-field>
@@ -62,7 +62,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>Razón social del Proveedor</span>
+                    <span>Razón social del Cliente</span>
                   </v-tooltip>
                 </template>
               </v-text-field>
@@ -87,7 +87,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>Tipo de Proveedor.</span>
+                    <span>Tipo de Cliente.</span>
                   </v-tooltip>
                 </template>
               </v-select>
@@ -111,7 +111,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>Estado del Proveedor.</span>
+                    <span>Estado del Cliente.</span>
                   </v-tooltip>
                 </template>
               </v-select>
@@ -130,7 +130,7 @@
                   small
                   elevation="2"
                   v-on="on"
-                  @click="updateProvider"
+                  @click="updateCustomer"
                 >
                   <v-icon>mdi mdi-content-save</v-icon>
                 </v-btn>
@@ -153,21 +153,21 @@ import { MESSAGE_TYPES } from '@/widgets/Messages'
 import cardTitle from '@/components/Shared/CardTitle/CardTitle'
 
 export default defineComponent({
-  name: 'ModalityPage',
+  name: 'CustomerComponent',
   components: {
     cardTitle,
     alerts,
   },
   props: {
-    provider: [],
+    customer: [],
   },
   emits: ['backList'],
 
   setup(props, { emit }) {
     const page = ref({
-      name: 'Proveedores',
-      namePl: 'Proveedor',
-      description: 'Editar proveedor',
+      name: 'Clientees',
+      namePl: 'Cliente',
+      description: 'Editar cliente',
       icon: 'mdi mdi-account-tie',
     })
     const backendService = ref(new BackendService())
@@ -204,7 +204,7 @@ export default defineComponent({
       emit('backList', value, null)
     }
 
-    const updateProvider = async () => {
+    const updateCustomer = async () => {
       if (nit.value === '' || razonSocial.value === '') {
         textAlert.value = 'Verifica que no existan campos obligatorios vacios.'
         showAlert.value = true
@@ -219,7 +219,7 @@ export default defineComponent({
         const currentId = id.value
 
         await backendService.value
-          .editProvider(currentId, data)
+          .editCustomer(currentId, data)
           .then((response) => {
             emit('backList', false, 'update')
           })
@@ -251,7 +251,7 @@ export default defineComponent({
       typeSelected,
       statusSelected,
       backList,
-      updateProvider,
+      updateCustomer,
     }
   },
 })

@@ -35,11 +35,11 @@
             </v-list-item-title>
           </template>
           <v-list-item class="px-0">
-            <v-list-item link to="/providers">
+            <v-list-item link to="/customers">
               <v-list-item-icon>
                 <v-icon class="ml-5"> mdi mdi-account-tie </v-icon>
               </v-list-item-icon>
-              <v-list-item-title> Proveedores </v-list-item-title>
+              <v-list-item-title> Clientes </v-list-item-title>
             </v-list-item>
           </v-list-item>
 

@@ -43,7 +43,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>NIT del Proveedor</span>
+                    <span>NIT del Cliente</span>
                   </v-tooltip>
                 </template>
               </v-text-field>
@@ -62,7 +62,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>Razon Social del Proveedor</span>
+                    <span>Razon Social del Cliente</span>
                   </v-tooltip>
                 </template>
               </v-text-field>
@@ -88,7 +88,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>Tipo de Proveedor.</span>
+                    <span>Tipo de Cliente.</span>
                   </v-tooltip>
                 </template>
               </v-select>
@@ -112,7 +112,7 @@
                     <template #activator="{ on }">
                       <v-icon v-on="on"> mdi mdi-help-circle-outline </v-icon>
                     </template>
-                    <span>Estado del Proveedor.</span>
+                    <span>Estado del Cliente.</span>
                   </v-tooltip>
                 </template>
               </v-select>
@@ -154,7 +154,7 @@ import { MESSAGE_TYPES } from '@/widgets/Messages'
 import cardTitle from '@/components/Shared/CardTitle/CardTitle'
 
 export default defineComponent({
-  name: 'ProviderComponent',
+  name: 'CustomerComponent',
   components: {
     cardTitle,
     alerts,
@@ -163,9 +163,9 @@ export default defineComponent({
 
   setup(context, { emit }) {
     const page = ref({
-      name: 'Proveedores',
-      namePl: 'Proveedor',
-      description: 'Crear proveedor',
+      name: 'Clientes',
+      namePl: 'Cliente',
+      description: 'Crear cliente',
       icon: 'mdi mdi-account-tie',
     })
 
@@ -199,7 +199,7 @@ export default defineComponent({
     const showAlert = ref(false)
     const typeAlert = ref('')
     const items = ref([])
-    const dialogProviders = ref(false)
+    const dialogCustomers = ref(false)
 
     const backList = (value) => {
       emit('backList', value, null)
@@ -219,7 +219,7 @@ export default defineComponent({
         }
 
         backendService.value
-          .addProvider(data)
+          .addCustomer(data)
           .then((response) => {
             emit('backList', false, 'create')
           })
@@ -231,8 +231,8 @@ export default defineComponent({
       }
     }
 
-    const closeDialogProviders = (event) => {
-      dialogProviders.value = false
+    const closedialogCustomers = (event) => {
+      dialogCustomers.value = false
       nit.value = ''
       razonSocial.value = ''
       type.value = ''
@@ -244,7 +244,7 @@ export default defineComponent({
       textAlert,
       showAlert,
       typeAlert,
-      dialogProviders,
+      dialogCustomers,
       items,
       requiredField,
       valid,
@@ -257,7 +257,7 @@ export default defineComponent({
       statusSelected,
       backList,
       handleSubmit,
-      closeDialogProviders,
+      closedialogCustomers,
     }
   },
 })
