@@ -171,9 +171,9 @@ export default defineComponent({
       icon: 'mdi mdi-account-tie',
     })
     const backendService = ref(new BackendService())
-    const id = ref(props.provider.id)
-    const nit = ref(props.provider.nit)
-    const razonSocial = ref(props.provider.razon_social)
+    const id = ref(props.customer.id)
+    const nit = ref(props.customer.nit)
+    const razonSocial = ref(props.customer.razon_social)
     const type = ref([
       {
         id: 1,
