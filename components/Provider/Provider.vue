@@ -262,11 +262,3 @@ export default defineComponent({
   },
 })
 </script>
-<style>
-.card-search {
-  position: absolute !important;
-  z-index: 100;
-  border: 2px solid #0082eb !important;
-  margin-top: 0px !important;
-}
-</style>

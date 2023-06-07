@@ -327,9 +327,3 @@ export default defineComponent({
   },
 })
 </script>
-<style>
-.subtitle {
-  font-size: 0.8rem;
-  font-style: normal !important;
-}
-</style>
