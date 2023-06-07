@@ -24,4 +24,32 @@ export default class BackendServices {
     return api.delete('/api/provider/' + id).then((res) => res.data)
   }
   // End Provider
+
+  // Branch
+  getBranches(data) {
+    return api.post('/api/branches', data).then((res) => res.data)
+  }
+
+  addBranch(data) {
+    return api.post('/api/branch', data)
+  }
+
+  editBranch(id, data) {
+    return api.put('/api/branch/' + id, data).then((res) => res.data)
+  }
+
+  deleteBranch(id) {
+    return api.delete('/api/branch/' + id).then((res) => res.data)
+  }
+  // End Branch
+
+  // Departments
+  getDepartments() {
+    return api.post('/api/departments').then((res) => res.data)
+  }
+
+  getCities(data) {
+    return api.post('/api/cities', data).then((res) => res.data)
+  }
+  // End Departments
 }

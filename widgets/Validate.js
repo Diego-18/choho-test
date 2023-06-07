@@ -13,4 +13,21 @@ const stringRule = ref([
   },
 ])
 
-export { requiredField, stringRule }
+const phoneRule = ref([
+  (v) => {
+    const ExpRegPhone =
+      '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+    const pattern = new RegExp(ExpRegPhone, 'i')
+    if (!v.trim() || v.length < 10) {
+      return 'Este campo es requerido.'
+    }
+
+    if (pattern.test(v)) {
+      return 'Este campo debe tener una longitud de 10 números.'
+    }
+
+    return true
+  },
+])
+
+export { requiredField, stringRule, phoneRule }
