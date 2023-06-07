@@ -165,7 +165,7 @@ export default defineComponent({
 
   setup(props, { emit }) {
     const page = ref({
-      name: 'Clientees',
+      name: 'Clientes',
       namePl: 'Cliente',
       description: 'Editar cliente',
       icon: 'mdi mdi-account-tie',
@@ -194,8 +194,8 @@ export default defineComponent({
         name: 'Inactivo',
       },
     ])
-    const typeSelected = ref(props.provider.type)
-    const statusSelected = ref(props.provider.active)
+    const typeSelected = ref(props.customer.type)
+    const statusSelected = ref(props.customer.active)
     const textAlert = ref('')
     const showAlert = ref(false)
     const typeAlert = ref('')
