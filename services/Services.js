@@ -43,7 +43,7 @@ export default class BackendServices {
   }
   // End Branch
 
-  // Departments
+  // Departments and Cities
   getDepartments() {
     return api.post('/api/departments').then((res) => res.data)
   }
@@ -52,4 +52,22 @@ export default class BackendServices {
     return api.post('/api/cities', data).then((res) => res.data)
   }
   // End Departments
+
+  // Products
+  getProducts(data) {
+    return api.post('/api/products', data).then((res) => res.data)
+  }
+
+  addProduct(data) {
+    return api.post('/api/product', data)
+  }
+
+  editProduct(id, data) {
+    return api.put('/api/product/' + id, data).then((res) => res.data)
+  }
+
+  deleteProduct(id) {
+    return api.delete('/api/product/' + id).then((res) => res.data)
+  }
+  // End Products
 }
