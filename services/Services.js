@@ -7,23 +7,23 @@ const api = axios.create({
 })
 
 export default class BackendServices {
-  // Provider
-  getProviders(data) {
-    return api.post('/api/providers', data).then((res) => res.data)
+  // Customers
+  getCustomers(data) {
+    return api.post('/api/customers', data).then((res) => res.data)
   }
 
-  addProvider(data) {
-    return api.post('/api/provider', data)
+  addCustomer(data) {
+    return api.post('/api/customer', data)
   }
 
-  editProvider(id, data) {
-    return api.put('/api/provider/' + id, data).then((res) => res.data)
+  editCustomer(id, data) {
+    return api.put('/api/customer/' + id, data).then((res) => res.data)
   }
 
-  deleteProvider(id) {
-    return api.delete('/api/provider/' + id).then((res) => res.data)
+  deleteCustomer(id) {
+    return api.delete('/api/customer/' + id).then((res) => res.data)
   }
-  // End Provider
+  // End Customers
 
   // Branch
   getBranches(data) {
@@ -70,4 +70,22 @@ export default class BackendServices {
     return api.delete('/api/product/' + id).then((res) => res.data)
   }
   // End Products
+
+  // Orders
+  getOrders(data) {
+    return api.post('/api/orders', data).then((res) => res.data)
+  }
+
+  addOrder(data) {
+    return api.post('/api/order', data)
+  }
+
+  editOrder(id, data) {
+    return api.put('/api/order/' + id, data).then((res) => res.data)
+  }
+
+  deleteOrder(id) {
+    return api.delete('/api/order/' + id).then((res) => res.data)
+  }
+  // End Orders
 }
