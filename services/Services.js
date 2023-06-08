@@ -88,4 +88,18 @@ export default class BackendServices {
     return api.delete('/api/order/' + id).then((res) => res.data)
   }
   // End Orders
+
+  // Auth
+  LogIn(data) {
+    return api.post('/api/login', data).then((res) => res.data)
+  }
+
+  LogOut() {
+    return api.post('/api/logout').then((res) => res.data)
+  }
+
+  getMe() {
+    return api.get('/api/user').then((res) => res.data)
+  }
+  // End Auth
 }
