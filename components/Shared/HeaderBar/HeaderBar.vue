@@ -2,15 +2,7 @@
   <div>
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list class="menu-list">
-        <v-list-item link to="/">
-          <v-list-item-icon>
-            <v-icon> mdi mdi-arrow-right-bold-circle </v-icon>
-          </v-list-item-icon>
-          <v-list-item-title class="font-weight-medium">
-            Inicio
-          </v-list-item-title>
-        </v-list-item>
-        <v-list-group prepend-icon="mdi mdi-tag">
+        <v-list-group prepend-icon="mdi mdi-arrow-right-bold-circle">
           <template #activator>
             <v-list-item-title class="font-weight-medium">
               Pedidos
@@ -35,11 +27,11 @@
             </v-list-item-title>
           </template>
           <v-list-item class="px-0">
-            <v-list-item link to="/providers">
+            <v-list-item link to="/customers">
               <v-list-item-icon>
                 <v-icon class="ml-5"> mdi mdi-account-tie </v-icon>
               </v-list-item-icon>
-              <v-list-item-title> Proveedores </v-list-item-title>
+              <v-list-item-title> Clientes </v-list-item-title>
             </v-list-item>
           </v-list-item>
 
@@ -61,22 +53,6 @@
             </v-list-item>
           </v-list-item>
         </v-list-group>
-
-        <v-list-group prepend-icon="mdi mdi-shield-account">
-          <template #activator>
-            <v-list-item-title class="font-weight-medium">
-              Seguridad
-            </v-list-item-title>
-          </template>
-          <v-list-item class="px-0">
-            <v-list-item link to="/users">
-              <v-list-item-icon>
-                <v-icon class="ml-5"> mdi mdi-account-circle </v-icon>
-              </v-list-item-icon>
-              <v-list-item-title> Usuario </v-list-item-title>
-            </v-list-item>
-          </v-list-item>
-        </v-list-group>
       </v-list>
     </v-navigation-drawer>
 
@@ -93,15 +69,20 @@
           mdi mdi-lightbulb-outline
         </v-icon>
       </v-btn>
+      <infoProfile />
     </v-app-bar>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
+import infoProfile from '@/components/Shared/InfoProfile/InfoProfile'
 
 export default defineComponent({
   name: 'HeaderBar',
+  components: {
+    infoProfile,
+  },
   setup() {
     /** DATA */
     const nameApp = ref('Work App')

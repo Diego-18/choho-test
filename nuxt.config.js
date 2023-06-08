@@ -37,13 +37,46 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/composition-api/module',
+    '@nuxtjs/moment',
   ],
 
+  moment: {
+    defaultLocale: 'es',
+    locales: ['es'],
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth-next'],
   axios: {
     baseURL: backendUrl,
     credentials: true,
+  },
+
+  auth: {
+    redirect: {
+      home: '/orders',
+      logout: '/login',
+      login: '/login',
+    },
+    plugins: ['~/plugins/auth.js'],
+    strategies: {
+      laravelSanctum: {
+        provider: 'laravel/sanctum',
+        url: backendUrl,
+        endpoints: {
+          login: {
+            url: '/api/login',
+          },
+          logout: {
+            url: '/api/logout',
+          },
+        },
+      },
+    },
+  },
+
+  router: {
+    middleware: ['auth'],
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

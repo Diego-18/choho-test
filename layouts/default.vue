@@ -28,4 +28,16 @@ export default defineComponent({
   color: white !important;
   text-decoration: none !important;
 }
+
+.card-search {
+  position: absolute !important;
+  z-index: 100;
+  border: 2px solid #0082eb !important;
+  margin-top: 0px !important;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  font-style: normal !important;
+}
 </style>
